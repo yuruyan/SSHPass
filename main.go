@@ -11,14 +11,15 @@ import (
 
 func init() {
 	if len(os.Args) < 2 {
-		fmt.Println("Usage: main.exe ip password")
+		fmt.Println("Usage:")
+		fmt.Println("\tsshpass.exe username@ip password")
 		os.Exit(-1)
 		return
 	}
 }
 
 func main() {
-	cmd := exec.Command("ssh", "luxiu@"+os.Args[1])
+	cmd := exec.Command("ssh", os.Args[1])
 	cmd.Stdin = os.Stdin
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
